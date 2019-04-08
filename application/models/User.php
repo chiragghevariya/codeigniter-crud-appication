@@ -1,21 +1,21 @@
 <?php
 class User extends CI_Model{
     
-    public function get_products(){
-        if(!empty($this->input->get("search"))){
-          $this->db->like('title', $this->input->get("search"));
-          $this->db->or_like('description', $this->input->get("search")); 
-        }
-        $query = $this->db->get("products");
+    public function index(){
+
+        $query = $this->db->get("users");
         return $query->result();
     }
-    public function insert_product()
+    public function saveUser()
     {    
-        $data = array(
-            'title' => $this->input->post('title'),
-            'description' => $this->input->post('description')
-        );
-        return $this->db->insert('products', $data);
+        $data['name'] = $_POST['name'];
+        $data['email'] = $_POST['email'];
+
+        return $this->db->insert('users',$data);
+
+        // GET LAST INSTERTED ID //
+        // print_r($this->db->insert_id());exit;
+        
     }
     public function update_product($id) 
     {

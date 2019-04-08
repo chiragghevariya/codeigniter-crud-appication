@@ -12,7 +12,7 @@
 
 <div class="container">
   <h2>Add user</h2>
-  <form action="/action_page.php">
+  <form action="<?php echo base_url(); ?>user/store" method="post">
     <div class="form-group">
       <label for="email">Name:</label>
       <input type="text" class="form-control" id="name" placeholder="Enter name" name="name">
