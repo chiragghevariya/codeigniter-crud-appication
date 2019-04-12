@@ -12,8 +12,9 @@ class UserController extends CI_Controller {
 	public function index()
 	{	
 		$user = new User;
-		$data['data'] = $user->index();
-		$this->load->view('user/index',$data);
+		$data = $user->index();
+		$id="";
+		$this->load->view('user/index',["data"=>$data,"id"=>$id]);
 	}
 
 	public function create()
@@ -28,7 +29,7 @@ class UserController extends CI_Controller {
 		// $data['email'] = $_POST['email'];
 
 		$user = new User;
-		$user->saveUser();
+		$user->saveUser($id=null);
 
 		return redirect(base_url('user'));
 		// $this->load->model->store($data);
@@ -37,8 +38,21 @@ class UserController extends CI_Controller {
 
 	public function edit($id)
 	{	
+		$data = $this->db->get_where('users',['id'=>$id])->row();
+		$this->load->view('user/addedit',["data"=>$data,"id"=>$id]);
+	}	
+
+	public function update($id)
+	{	
 		$user = new User;
-		$data['data'] = $user->index();
-		$this->load->view('user/addedit',$data);
+		$user->saveUser($id);
+		return redirect(base_url('user'));
+	}
+
+	public function delete($id)
+	{	
+		$user = new User;
+		$user->deleteUser($id);
+		return redirect(base_url('user'));
 	}
 }

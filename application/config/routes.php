@@ -60,5 +60,5 @@ $route['user'] = 'userController/index';
 $route['user/create'] = 'userController/create';
 $route['user/store']['post'] = 'userController/store';
 $route['user/edit/(:any)'] = 'userController/edit/$1';
-$route['user/update/(:any)']['put'] = 'userController/update/$1';
-$route['user/delete/(:any)']['delete'] = 'userController/delete/$1';
+$route['user/update/(:any)']['post'] = 'userController/update/$1';
+$route['user/delete/(:any)'] = 'userController/delete/$1';
