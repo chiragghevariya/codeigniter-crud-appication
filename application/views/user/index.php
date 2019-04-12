@@ -21,14 +21,25 @@
       </tr>
     </thead>
     <tbody>
-    	<?php foreach ($data as $key => $value) { ?>
-		  <tr>
-	        <td><?php echo $value->name; ?></td>
-	        <td><?php echo $value->email; ?></td>
-	        <td><a href="<?php echo base_url('user/edit/'.$value->id); ?>"><b>Edit</b></a> | <a href="<?php echo base_url('user/delete/'.$value->id); ?>"><b>Delete</b></a>
-	        </td>
-	      </tr>
-		<?php } ?>
+
+    	<?php if (!empty($data)) { ?>
+				
+	    	<?php foreach ($data as $key => $value) { ?>
+			  <tr>
+		        <td><?php echo $value->name; ?></td>
+		        <td><?php echo $value->email; ?></td>
+		        <td><a href="<?php echo base_url('user/edit/'.$value->id); ?>"><b>Edit</b></a> | <a href="<?php echo base_url('user/delete/'.$value->id); ?>"><b>Delete</b></a>
+		        </td>
+		      </tr>
+			<?php } ?>
+
+    	<?php 	}else{ ?>
+    			
+    			<tr><td style="text-align: center;"><strong>No data found</strong></td><tr>
+
+    	<?php 	} ?>
+    	 
+
     </tbody>
   </table>
 </div>
