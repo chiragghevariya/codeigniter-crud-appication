@@ -17,50 +17,21 @@
 <body>
 
 <div class="container">
-  <h2>Add user</h2>
+  <h2>Login</h2>
    <div class="text-danger" style="background: red;color:white">
     <?php echo validation_errors(); ?>
     </div>
-  <?php if(isset($id) && $id !="") { ?> 
 
-    <?php 
+    <form action="<?php echo base_url('user/doLogin'); ?>" method="post" name="userform">
 
-      $name = $data->name;
-      $email = $data->email;
-      $id= $data->id
-
-    ?>
-
-    <form action="<?php echo base_url('user/update/'.$data->id); ?>" method="post" name="userform">
-
-  <?php } else { ?>
-    <?php 
-
-      $name = "";
-      $email = "";
-      $id ="";
-
-    ?>
-    <form action="<?php echo base_url('user/store'); ?>" method="post" name="userform">
-
-  <?php }  ?>
-  
-    <input type="hidden" name="id" value="<?php echo $id; ?>" >
-
-    <div class="form-group">
-      <label for="email">Name:</label>
-      <input type="text" class="form-control" value="<?php echo $name; ?>" id="name" placeholder="Enter name" name="name">
-    </div>
     <div class="form-group">
       <label for="email">Email:</label>
-      <input type="email" class="form-control" value="<?php echo $email; ?>" id="email" placeholder="Enter email" name="email">
+      <input type="email" class="form-control" value="" id="email" placeholder="Enter email" name="email">
     </div>
-    <?php if($id == "") { ?> 
     <div class="form-group">
       <label for="password">Password:</label>
-      <input type="password" class="form-control" value="<?php echo $email; ?>" id="password" placeholder="Enter password" name="password">
+      <input type="password" class="form-control" value="" id="password" placeholder="Enter password" name="password">
     </div>
-   <?php  } ?>
     <button type="submit" class="btn btn-default">Submit</button>
     <a href="<?php echo base_url(); ?>user" class="btn btn-danger">Cancle</a>
   </form>
@@ -77,7 +48,6 @@ $(function() {
       // The key name on the left side is the name attribute
       // of an input field. Validation rules are defined
       // on the right side
-      name: {required:true},
       email: {
         required: true,
         // Specify that email should be validated
@@ -87,7 +57,6 @@ $(function() {
     },
     // Specify validation error messages
     messages: {
-      name: {"required":"Please enter your name."},
       email: {"required":"Please enter a valid email address."}
     },
     // Make sure the form is submitted to the destination defined

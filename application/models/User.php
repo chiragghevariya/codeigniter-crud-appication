@@ -10,6 +10,10 @@ class User extends CI_Model{
     {    
         $data['name'] = $_POST['name'];
         $data['email'] = $_POST['email'];
+        if ($id == "") {
+            
+            $data['password'] = sha1($_POST['password']);
+        }
 
         if ($id == null) {
             $this->session->set_flashdata('record_save_update','User data successfully saved.');

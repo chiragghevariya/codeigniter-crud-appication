@@ -57,6 +57,7 @@ $route['translate_uri_dashes'] = FALSE;
 // user routes 
 
 $route['user'] = 'userController/index';
+$route['login'] = 'userController/login';
 $route['user/create'] = 'userController/create';
 $route['user/store']['post'] = 'userController/store';
 $route['user/edit/(:any)'] = 'userController/edit/$1';

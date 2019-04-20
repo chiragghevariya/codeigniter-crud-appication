@@ -22,6 +22,11 @@ class UserController extends CI_Controller {
 	public function create()
 	{	
 		$this->load->view('user/addedit');
+	}	
+
+	public function login()
+	{	
+		$this->load->view('login');
 	}
 
 	public function store()
