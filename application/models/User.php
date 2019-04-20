@@ -12,12 +12,13 @@ class User extends CI_Model{
         $data['email'] = $_POST['email'];
 
         if ($id == null) {
-
+            $this->session->set_flashdata('record_save_update','User data successfully saved.');
             return $this->db->insert('users',$data);
 
         }else{
 
             $this->db->where('id',$id);
+            $this->session->set_flashdata('record_save_update','User data successfully updated.');
             return $this->db->update('users',$data);
         }   
         // GET LAST INSTERTED ID //

@@ -7,12 +7,15 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  <script src="http://ajax.microsoft.com/ajax/jquery.validate/1.7/jquery.validate.js"></script>
 </head>
 <body>
 
 <div class="container">
   <h2>Add user</h2>
-
+   <div class="text-danger" style="background: red;color:white">
+    <?php echo validation_errors(); ?>
+    </div>
   <?php if(isset($id) && $id !="") { ?> 
 
     <?php 

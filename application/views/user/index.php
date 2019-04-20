@@ -12,6 +12,7 @@
 
 <div class="container">
   <h2><a href="<?php echo base_url()?>user/create" class="btn btn-success pull-right">Add</a></h2>
+  <p id="record_save_update" style="background-color:green;color: white;width: 50%;margin: auto;text-align: center;"><?php echo $this->session->flashdata('record_save_update'); ?></p><br> 
   <table class="table table-hover">
     <thead>
       <tr>
@@ -43,6 +44,14 @@
     </tbody>
   </table>
 </div>
+<script>
+  
+  $(document).ready(function(){
 
+    $("#record_save_update").fadeOut(3000);
+
+  })
+
+</script>
 </body>
 </html>
