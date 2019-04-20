@@ -8,6 +8,11 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
   <script src="http://ajax.microsoft.com/ajax/jquery.validate/1.7/jquery.validate.js"></script>
+  <style type="text/css">
+    .error{
+      color: red;
+    }
+  </style>
 </head>
 <body>
 
@@ -26,7 +31,7 @@
 
     ?>
 
-    <form action="<?php echo base_url('user/update/'.$data->id); ?>" method="post">
+    <form action="<?php echo base_url('user/update/'.$data->id); ?>" method="post" name="userform">
 
   <?php } else { ?>
     <?php 
@@ -36,7 +41,7 @@
       $id ="";
 
     ?>
-    <form action="<?php echo base_url('user/store'); ?>" method="post">
+    <form action="<?php echo base_url('user/store'); ?>" method="post" name="userform">
 
   <?php }  ?>
   
@@ -54,6 +59,39 @@
     <a href="<?php echo base_url(); ?>user" class="btn btn-danger">Cancle</a>
   </form>
 </div>
+<script>
+    
+    // Wait for the DOM to be ready
+$(function() {
+  // Initialize form validation on the registration form.
+  // It has the name attribute "registration"
+  $("form[name='userform']").validate({
+    // Specify validation rules
+    rules: {
+      // The key name on the left side is the name attribute
+      // of an input field. Validation rules are defined
+      // on the right side
+      name: {required:true},
+      email: {
+        required: true,
+        // Specify that email should be validated
+        // by the built-in "email" rule
+        email: true
+      }
+    },
+    // Specify validation error messages
+    messages: {
+      name: {"required":"Please enter your name."},
+      email: {"required":"Please enter a valid email address."}
+    },
+    // Make sure the form is submitted to the destination defined
+    // in the "action" attribute of the form when valid
+    submitHandler: function(form) {
+      form.submit();
+    }
+  });
+});
 
+</script>
 </body>
 </html>
