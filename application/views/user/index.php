@@ -11,7 +11,8 @@
 <body>
 
 <div class="container">
-  <h2><a href="<?php echo base_url()?>user/create" class="btn btn-success pull-right">Add</a></h2>
+  <h2><a style="margin-left: 10px;" href="<?php echo base_url()?>user/create" class="btn btn-success pull-right">Sign Up</a></h2>
+  <h2 style="margin-right: 2px"><a href="<?php echo base_url()?>login" class="btn btn-success pull-right">Sign In</a></h2> 
   <p id="record_save_update" style="background-color:green;color: white;width: 50%;margin: auto;text-align: center;"><?php echo $this->session->flashdata('record_save_update'); ?></p><br> 
   <table class="table table-hover">
     <thead>

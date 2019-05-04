@@ -53,11 +53,19 @@ $(function() {
         // Specify that email should be validated
         // by the built-in "email" rule
         email: true
+      },
+       password: {
+        required: true,
+        minlength: 5
       }
     },
     // Specify validation error messages
     messages: {
-      email: {"required":"Please enter a valid email address."}
+      email: {"required":"Please enter a valid email address."},
+      password: {
+        required: "Please enter a password.",
+        minlength: "Your password must be at least 5 characters long."
+      },
     },
     // Make sure the form is submitted to the destination defined
     // in the "action" attribute of the form when valid
